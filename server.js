@@ -1,17 +1,12 @@
 const express = require('express');
 const bodyParser=require('body-parser')
 const routes = require('./src/routes/routes');
+const mongoose = require("./src/connectors/dbConnector")
 const app = express();
 
+global.ErrorCodes = require('./src/constant/errorCodes')
+
 const port = 4000;
-
-
-
-//const bodyParser = require('body-parser');
-
-// app.use(bodyParser.json({ limit: '50mb' }));
-
-// listning server
 
 app.use(bodyParser.json())
 app.use(routes)
