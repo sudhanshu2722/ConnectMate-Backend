@@ -1,3 +1,4 @@
+const { string } = require('joi');
 const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema;
@@ -12,21 +13,23 @@ const userSchema = new Schema({
         index: true
     },
     countryCode: {
-        type: Number,
+        type: String,
         length: 3,
     },
     phoneNumber: {
         type: Number,
         length: 10,
         match: /[1-9]/,
-        index: true
+        index: true,
+        unique:true
     },
     password: {
         type: Object
     },
     email: {
         type: String,
-        index: true
+        index: true,
+        unique:true
     },
     createAt: {
         type: Date,
@@ -36,7 +39,7 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now
     },
-});
+}, { versionKey: false });
 
 
 
