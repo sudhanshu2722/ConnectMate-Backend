@@ -2,15 +2,7 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-    name: {
-        type: String,
-        default: 'hahaha'
-    },
-    age: {
-        type: Number,
-        index: true
-    },
+const signUpReqSchema = new Schema({
     countryCode: {
         type: String,
         length: 3,
@@ -22,13 +14,10 @@ const userSchema = new Schema({
         index: true,
         unique:true
     },
-    password: {
-        type: Object
-    },
-    email: {
-        type: String,
-        index: true,
-        unique:true
+    otp: {
+        type: Number,
+        length: 4,
+        match: /[1-9]/
     },
     createAt: {
         type: Date,
@@ -42,6 +31,6 @@ const userSchema = new Schema({
 
 
 
-const userModal = mongoose.model('user', userSchema);
+const signUpReqModal = mongoose.model('signUpReq', signUpReqSchema);
 
-module.exports = userModal;
+module.exports = signUpReqModal;

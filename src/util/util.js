@@ -55,4 +55,15 @@ function responseFormate(userData) {
     return response;
 }
 
-module.exports = { generatPasswordeHash, responseFormate, verifyPassword }
+
+function generateOTP(signUpData){
+    const otpData = {
+        otp : signUpData?.otp || Math.floor(1000 + Math.random() * 9000) 
+    }
+    if (signUpData) {
+        otpData.updatedAt = new Date()
+    }
+    return otpData ;
+}
+
+module.exports = { generatPasswordeHash, responseFormate, verifyPassword, generateOTP }

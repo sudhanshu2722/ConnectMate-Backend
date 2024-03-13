@@ -8,8 +8,8 @@ class userDb {
     async getByquery(query) {
         return await userModal.find(query)
     }
-    async create(userData) {
-        return await userModal.create(userData)
+    async create(createData) {
+        return await userModal.create(createData)
     }
     async update(updateData) {
 
