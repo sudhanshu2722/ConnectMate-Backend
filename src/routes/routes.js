@@ -1,7 +1,7 @@
 const express = require('express');
 const userCntrl = require("../controller/getuserController")
 const createUserCntrl = require("../controller/createUserController")
-const loginCntrl = require("../controller/signUpController")
+const loginCntrl = require("../controller/loginController")
 const signUpCntrl = require("../controller/signUpController")
 const { getUserValidator, creatUserValidator, userLoginValidator, signUpValidator } = require("../validator/reqValidator")
 const routes = express();
